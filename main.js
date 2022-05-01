@@ -82,19 +82,19 @@ getEleID("btn4").onclick = function () {
 */
 
 getEleID("btn5").onclick = function () {
-	var hasEven = false;
+    var hasEven = false;
     for (var i = arrNum.length; i > 0; i--) {
         if (arrNum[i] % 2 == 0) {
             var num = arrNum[i];
-			hasEven = true;
+            hasEven = true;
             break;
         }
     }
-	if (hasEven == false) {
-		getEleID("kq5").innerHTML = "Mảng không có chỗ chẵn";
-	} else {
-		getEleID("kq5").innerHTML = num;
-	}
+    if (hasEven == false) {
+        getEleID("kq5").innerHTML = "Mảng không có số chẵn";
+    } else {
+        getEleID("kq5").innerHTML = num;
+    }
 }
 
 /*
@@ -104,7 +104,7 @@ getEleID("btn5").onclick = function () {
 getEleID("btn6").onclick = function () {
     var vT1 = getEleID("viTri1").value;
     var vT2 = getEleID("viTri2").value;
-    console.log(vT1,vT2);
+    console.log(vT1, vT2);
     var temp;
     temp = arrNum[vT1];
     arrNum[vT1] = arrNum[vT2];
@@ -116,29 +116,21 @@ getEleID("btn6").onclick = function () {
     Bài 7 : sắp xếp tăng dần
 */
 
-function isArrAscend(arr[]) {
-	var isAcs = false;
-	for(var i = 0; i< arr.leng; i++){		
-		if(arr[i] < arr[i+1]){
-			isAcs = true;
-		} else {
-			isAcs = false;
-			
-		}
-	}
-}
-
 getEleID("btn7").onclick = function () {
     var temp;
     for (var i = 0; i < arrNum.length; i++) {
-        if (arrNum[i] > arrNum[i + 1]) {
-            temp = arrNum[i];
-            arrNum[i] = arrNum[i + 1];
-            arrNum[i + 1] = temp;
+        for (var j = i + 1; j < arrNum.length; j++) {
+            if (arrNum[i] > arrNum[j]) {
+                temp = arrNum[i];
+                arrNum[i] = arrNum[j];
+                arrNum[j] = temp;
+            }
         }
     }
     getEleID("kq7").innerHTML = arrNum.toString();
 }
+
+
 
 
 
