@@ -82,13 +82,19 @@ getEleID("btn4").onclick = function () {
 */
 
 getEleID("btn5").onclick = function () {
+	var hasEven = false;
     for (var i = arrNum.length; i > 0; i--) {
         if (arrNum[i] % 2 == 0) {
             var num = arrNum[i];
+			hasEven = true;
             break;
         }
     }
-    getEleID("kq5").innerHTML = num;
+	if (hasEven == false) {
+		getEleID("kq5").innerHTML = "Mảng không có chỗ chẵn";
+	} else {
+		getEleID("kq5").innerHTML = num;
+	}
 }
 
 /*
@@ -98,7 +104,7 @@ getEleID("btn5").onclick = function () {
 getEleID("btn6").onclick = function () {
     var vT1 = getEleID("viTri1").value;
     var vT2 = getEleID("viTri2").value;
-    console.log(vT1,vt2);
+    console.log(vT1,vT2);
     var temp;
     temp = arrNum[vT1];
     arrNum[vT1] = arrNum[vT2];
@@ -109,6 +115,18 @@ getEleID("btn6").onclick = function () {
 /*
     Bài 7 : sắp xếp tăng dần
 */
+
+function isArrAscend(arr[]) {
+	var isAcs = false;
+	for(var i = 0; i< arr.leng; i++){		
+		if(arr[i] < arr[i+1]){
+			isAcs = true;
+		} else {
+			isAcs = false;
+			
+		}
+	}
+}
 
 getEleID("btn7").onclick = function () {
     var temp;
@@ -121,4 +139,26 @@ getEleID("btn7").onclick = function () {
     }
     getEleID("kq7").innerHTML = arrNum.toString();
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
