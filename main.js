@@ -104,7 +104,6 @@ getEleID("btn5").onclick = function () {
 getEleID("btn6").onclick = function () {
     var vT1 = getEleID("viTri1").value;
     var vT2 = getEleID("viTri2").value;
-    console.log(vT1, vT2);
     var temp;
     temp = arrNum[vT1];
     arrNum[vT1] = arrNum[vT2];
@@ -130,10 +129,81 @@ getEleID("btn7").onclick = function () {
     getEleID("kq7").innerHTML = arrNum.toString();
 }
 
+/*
+    Bài 8 : tìm số nguyên tố đầu tiên
+*/
 
+function laSoNT(n) {
+    var soNguyenTo = true;
+    if (n < 2){
+        return soNguyenTo = false;
+    } else {
+        for (var i = 2; i <= Math.sqrt(n); i++){
+            if (n % i == 0) {
+                return soNguyenTo = false;
+            }
+        }
+    }
+    return soNguyenTo;
+}
 
+getEleID("btn8").onclick = function () {
+    var soNguyenTo;
+    for (var i = 0; i < arrNum.length; i++) {
+        if(laSoNT(arrNum[i])){
+            soNguyenTo = arrNum[i];
+			break;
+        }
+    }
+    getEleID("kq8").innerHTML = soNguyenTo;
+}
 
+/*
+    Bài 9 : đếm số nguyên 
+*/
 
+arrSoNguyen = [];
+getEleID("btn9ThemSo").onclick = function () {
+    var numSoNguyen = Number(getEleID("themSoNguyen").value);
+    arrSoNguyen.push(numSoNguyen);
+    getEleID("kq9ThemSo").innerHTML = arrSoNguyen.toString();
+    getEleID("themSoNguyen").value = "";
+};
+
+getEleID("btn9").onclick = function() {
+    var cnt = 0;
+    for (var i = 0; i < arrSoNguyen.length; i++) {
+        if (Number.isInteger(arrSoNguyen[i])) {
+            cnt ++;
+        }
+    }
+    getEleID("kq9").innerHTML = cnt;
+}
+
+/*
+    Bài 10 : so sánh số lượng số âm và dương
+*/
+
+getEleID("btn10").onclick = function () {
+	var cntSoDuong = 0;
+	var cntSoAm = 0;
+    kq = "";
+    for (var i = 0; i < arrNum.length; i++) {
+        if (arrNum[i] > 0) {
+            cntSoDuong ++;
+        } else if (arrNum[i] < 0) {
+			cntSoAm ++;
+		}
+    };
+    if (cntSoDuong > cntSoAm) {
+        kq = "Số dương > Số âm";
+    } else if ( cntSoDuong < cntSoAm ) {
+        kq = "Số dương < Số âm";
+    } else {
+        kq = "Số dương = Số âm";
+    }
+    getEleID("kq10").innerHTML = kq;
+}
 
 
 
